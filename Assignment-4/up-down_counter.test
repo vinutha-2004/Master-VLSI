@@ -1,0 +1,17 @@
+module up_down_counter_tb;
+reg clk, rst, up_down;
+wire [3:0] count;
+up_down_counter uut(clk, rst, up_down, count);
+initial begin
+$dumpfile("up_down_counter.vcd");
+$dumpvars(0, up_down_counter_tb);
+clk = 0; rst = 1; up_down = 1; #2;
+rst = 0;
+up_down = 1; #20;
+up_down = 0; #20;
+$finish;
+end
+always #1 clk = ~clk;
+endmodule
+
+

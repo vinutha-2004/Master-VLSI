@@ -1,0 +1,16 @@
+module test_fulladd;
+reg a, b, c_in;
+wire sum, c_out;
+fulladd uut(sum, c_out, a, b, c_in);
+initial 
+begin
+$dumpfile("fulladd.vcd");
+$dumpvars(0, test_fulladd);
+
+a = 0; b = 0; c_in = 0; #1;
+a = 0; b = 1; c_in = 0; #1;        
+a = 1; b = 1; c_in = 0; #1;
+a = 1; b = 1; c_in = 1; #1;
+$finish;
+end
+endmodule

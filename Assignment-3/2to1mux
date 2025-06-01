@@ -1,0 +1,5 @@
+module mux2to1(y, a, b, s);
+output y;
+input a, b, s;
+assign y = s ? b : a;
+endmodule
